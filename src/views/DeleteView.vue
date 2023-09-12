@@ -5,7 +5,7 @@
     <br>
     <br>
     <div class="dope">
-    <button @click="setPost" class="dim">Log In</button>
+    <button @click="setPost" class="dim">Delete</button>
     </div>
   </div>
   </form>
@@ -20,8 +20,8 @@ export default {
    methods: {
      setPost(event) {
       event.preventDefault()
-      fetch('http://localhost:4000/api/candidates/login', {
-        method: 'POST',
+      fetch('http://localhost:4000/api/candidates/delete', {
+        method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
         },

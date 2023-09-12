@@ -2,7 +2,8 @@
   <nav>
     <router-link class="dip" to="/">Register</router-link>
     <router-link class="dip" to="/login">Login</router-link>
-    <router-link class="dip" to="/candidates">All Candidate Details</router-link>
+    <router-link class="dip" to="/update">Update</router-link>   
+    <router-link class="dip" to="/Delete">Delete Candidate</router-link>
     <hr class="bar">
   </nav>
   <router-view/>

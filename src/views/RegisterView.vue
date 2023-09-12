@@ -26,7 +26,7 @@
     <label>Password</label>
     <input type="password" id="one" v-model="password" name="password" required placeholder="Enter Your Password"><br>
     <div class="leak">
-    <input type="submit" class="soso" value="Submit" >
+      <button @click="setPost" class="soso">Submit</button>
     </div>
     </div>
   </form>
@@ -35,18 +35,32 @@
 <script>
 export default {
   data(){
-    return{
-      full_name: "",
-      place_of_birth: "",
-      gender: "",
-      email: "",
-      phone_number: "",
-      date_of_birth: "",
-      id_type: "",
-      id_number: "",
-      password: ""
-    }
-  }
+    return { postData: { full_name: '', place_of_birth: '', gender: '', email: '', phone_number: '', date_of_birth: '', id_type: '',  id_number: '', password: '' }}
+  },
+   methods: {
+     setPost(event) {
+      event.preventDefault()
+      fetch('http://localhost:4000/api/candidates/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          full_name: this.full_name,
+          place_of_birth: this.place_of_birth,
+          gender: this.gender,
+          email: this.email,
+          phone_number: this.phone_number,
+          date_of_birth: this.date_of_birth,
+          id_type: this.id_type,
+          id_number: this.id_number,
+          password: this.password
+        })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+     }
+   }
 }
 </script>
 
